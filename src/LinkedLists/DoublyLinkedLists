@@ -1,0 +1,33 @@
+Doubly Linked Lists
+Having learned about singly linked lists, let’s next learn about its variation - the Doubly Linked List. As the name implies,
+each node now has two pointers. In addition to the next pointer, we have a prev pointer which points to the previous node.
+If the prev pointer points to null, it is an indication that we are at the head of the linked list.
+
+Operations of a Doubly Linked Lists
+Insertion End
+Similar to the singly linked list, adding a node to a doubly linked list will run in O(1) time.
+Only this time, we have to update the prev pointer as well.
+
+For example, if we have three nodes in our linked list, ListNode1, ListNode2 and ListNode3. Now we have another node, ListNode4, that we wish to insert at the end. We will have to update both the next pointer of ListNode3 and the prev pointer of ListNode4.
+
+tail.next = ListNode4;
+ListNode4.prev = tail;
+tail = tail.next;
+Deletion End
+Deleting at the end is also a O(1) operation.
+
+First we get a reference to the node before the tail.
+We update the next pointer of the node before the tail to null.
+We update the tail to be the node before the tail.
+(Optional) We can also update the prev pointer of the old tail to null.
+ListNode2 = tail.prev;
+ListNode2.next = null;
+tail = ListNode2;
+Since we can insert and remove from the end in O(1) time, in theory, we could implement a stack with a linked list instead of an array. This is less common, but it is a possibility.
+Access
+Similar to singly linked lists, we cannot randomly access a node. So in the worst case, we will have to traverse
+n nodes before reaching the desired node. This would run in
+O(n) time.
+
+Doubly linked lists have the benefit that we can traverse the list in both directions, as opposed to singly linked lists.
+
